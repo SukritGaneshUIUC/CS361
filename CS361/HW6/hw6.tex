@@ -1,0 +1,203 @@
+ \documentclass{article}
+ \usepackage{graphicx}
+ \graphicspath{ {./images/} }
+ 
+ \usepackage{hyperref}
+ \hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+ }
+
+ \usepackage{parskip}
+ \usepackage{amsmath}
+ 
+ \begin{document}
+ 
+ \begin{center}
+     \Huge\textbf{Homework 6: Sukrit Ganesh}\par
+ \end{center}
+ 
+  \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\newline
+ 
+ \begin{center}
+      \Large\textbf{Problem 1:} The Average Mouse: You wish to estimate the average weight of a mouse. You obtain 10 mice, sampled uniformly at random and with replacement from the mouse population. Their weights are 21, 23, 27, 19, 17, 18, 20, 15, 17, 22 grams, respectively. \par
+ \end{center}
+ 
+ \textbf{Part A: | What is the best estimate for the average weight of a mouse, from this data?}\newline
+ 
+ Because we only have a sample, we can estimate the population sample by calculating the sample mean. Let $\{x\}$ be the set of 10 weights from the 10 mice we have sampled.\newline
+ 
+ \[x = \{21,23,27,19,17,18,20,15,17,22\}\]
+ 
+ \[mean\{x\} = \frac{1}{N}\sum_{i}^{}x_i = 19.9\]
+ 
+ Final Answer: $19.9$ grams.\newline
+ 
+ \textbf{Part B: | What is the standard error of this estimate?}\newline
+ 
+ Standard error of the mean be calculated using the following formula:
+ 
+ \[SE=\frac{s}{\sqrt{N}}\]
+ 
+ , where $s$ is the sample standard deviation and $N$ is the sample size. To calculate the sample standard deviation, we must apply Bessel's correction.
+ 
+ \[s = \sqrt{\frac{\sum(x_i-\Bar{x})^2}{N-1}} = 3.510\]
+ 
+ \[SE = \frac{s}{\sqrt{N}} = \frac{3.510}{\sqrt{10}} = 1.110\]
+ 
+ Final Answer: $1.110$.\newline
+ 
+ \textbf{Part C: | How many mice would you need to reduce the standard error to 0.1?}\newline
+ 
+ We assume the same sample standard deviation.\newline
+ 
+ \[SE=\frac{s}{\sqrt{N}} < 0.1\]
+  
+ \[\frac{3.510}{\sqrt{N}} < 0.1\]
+  
+ \[\sqrt{N} > \frac{3.510}{0.1}\]
+
+ \[N > 1232\]
+ 
+ Final Answer: At least 1233 mice.\newline
+ 
+ \newpage
+ 
+ \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\newline
+ 
+ \begin{center}
+      \Large\textbf{Problem 2:} Sample Variance and Standard Error: You encounter a deck of Martian playing cards. There are 87 cards in the deck. You cannot read Martian, and so the meaning of the cards is mysterious. However, you notice that some cards are blue, and others are yellow.\par
+ \end{center}
+ 
+ \textbf{Part A: | You shuffle the deck, and draw one card. You repeat this exercise 10 times, replacing the card you drew each time before shuffling. You see 7 yellow and 3 blue cards in the deck. As you know, the maximum likelihood estimate of the fraction of blue cards in the deck is 0.3. What is the standard error of this estimate?}\newline
+ 
+ The standard error of proportion is given by the following formula:
+ 
+ \[SE = \sqrt{\frac{p(1-p)}{n}}\]
+ 
+ , where $p$ is the sample proportion and $n$ is the sample size. We will let $p$ be the proportion of blue cards in our sample. 
+ 
+ \[SE = \sqrt{\frac{0.3(1-0.3)}{10}} = 0.145\]
+ 
+ Final Answer: $0.145$.\newline
+ 
+ \textbf{Part B: | How many times would you need to repeat the exercise to reduce the standard error to 0.05?}\newline
+ 
+ We will assume the sample proportion remains 0.3. We must adjust the sample size such that the standard error falls below 0.05.
+ 
+ \[SE = \sqrt{\frac{p(1-p)}{n}} < 0.05\]
+ 
+ \[\sqrt{\frac{0.3(1-0.7)}{n}} < 0.05\]
+ 
+ \[\frac{0.21}{n} < 0.0025\]
+ 
+ \[\frac{0.21}{0.0025} < n\]
+ 
+ \[SE = n > 84 \]
+ 
+ Our sample must be greater than 84, or at least 85, in order for standard error to be less than 0.05.
+ 
+ Final Answer: $85$.\newline
+ 
+ \newpage
+
+ \begin{center}
+      \Large\textbf{Problem 3:} You wish to estimate the average weight of a pet rat. You obtain 40 rats (easily and cheaply done; keep them, because they make excellent pets), sampled uniformly at random and with replacement from the pet rat population. The mean weight is 340 grams, with a standard deviation of 75 grams.\par
+ \end{center}
+
+ \textbf{Part A: | Give a 68\% confidence interval for the weight of a pet rat, from this data.}\newline
+ 
+ We are trying to calculate a confidence interval for the weight of a pet rat given the mean and standard deviation of the sample. We can use the following formula to calculate the confidence interval:
+ 
+ \[C.I. = \bar{x} \pm z*SE\]
+ 
+ where $\bar{x}$ is the sample mean, $SE$ is the standard error, and $z$ is the z-score dictating the size of our confidence interval. We use the formula $SE = \frac{s}{\sqrt{N}}$ to calculate the standard error to be 11.858. Furthermore, a $68\%$ confidence interval has a z-score of 1, since it includes all values within 1 standard error of the mean. While we can find the z-score from a table, we can use the "68 95 99" rule which states that the confidence intervals of 68, 95, and 99.7 must use z-scores of 1, 2, and 3, respectively. We are using a z-score rather than a t-score because our sample size is greater than 30.
+ 
+ \[C.I. = \bar{x} \pm z*SE = 340 \pm 11.858 = (328.142, 351.858)\]
+ 
+ Final Answer: $340 \pm 11.858 = (328.142, 351.858)$.\newline
+ 
+ \textbf{Part B: | Give a 99\% confidence interval for the weight of a pet rat, from this data.}\newline
+ 
+ Once again, we must use z-scores to calculate our confidence interval. Using a table, we find that the z-score for the 99.5th percentile is 2.576 (the 99\% confidence interval spans from 0.5\% to 99.5\%). We can use this z-score and the calculations from Part A to find the $99\%$ confidence interval.
+ 
+ \[C.I. = \bar{x} \pm z*SE = 340 \pm 2.576*11.858 = 340 \pm 30.546 = (309.454, 370.546) \]
+ 
+ Final Answer: $340 \pm 30.546 = (309.454, 370.546)$.\newline
+ 
+ \textbf{Part C: | Give a 99\% confidence interval for the weight of a pet rat, from this data.}\newline
+ 
+ Because the sample size is less than 30, we must use a t-score instead of a z-score. The Student-t distribution is, unfortunately, wider and more error prone than the normal distribution, but it isn't exceptionally so. We have to use a t-distribution of degree 9 (we calculate degree as N-1) because our sample size is too small for using a normal distribution. Smaller samples are obviously more prone to error, and we must account for that by using a t-score to calculate our confidence interval.
+ 
+ \newpage
+ 
+ \begin{center}
+      \Large\textbf{Problem 4:} In Carcelle-le-Grignon at the end of the eighteenth century, there were 2009 births. There were 983 boys and 1026 girls. You can regard this as a fair random sample (with replacement, though try not to think too hard about what that means) of births. If you map each female birth to 1 and each male birth to 0, the probability of a female birth is the population mean of this random variable. You have a sample of 2009 births.\par
+ \end{center}
+ 
+ \textbf{Part A: | Using the reasoning and data above, construct a 99\% confidence interval for the probability of a female birth.}\newline
+ 
+ We have an extremely large fair sample, so we can use a z-score instead of a t-score to calculate our confidence intervals. The formula very similar to Problem 3: $C.I. = p + \pm z*SE$, but we must use the standard error of a sample proportion rather than a sample mean, because we are concerned with the proportion of babies born female. Our sample proportion is $\frac{1026}{2009} = 0.511$, and our sample size is $2009$. As in Problem 3, the z-score for a $99\%$ confidence interval is $2.576$.
+ 
+ \[SE = \sqrt{\frac{p(1-p)}{N}} = \sqrt{\frac{0.511(1-0.511)}{2009}} = 0.0112\]
+ 
+ \[C.I. = p \pm z*SE = 0.511 \pm 2.576*0.0112 = 0.511 \pm 0.0289 = (0.482, 0.540)\]
+ 
+ Final Answer: $0.511 \pm 0.0289 = (0.482, 0.540)$.\newline
+ 
+ \textbf{Part B: | Using the reasoning and data above, construct a 99\% confidence interval for the probability of a male birth.}\newline
+ 
+ We use the same logic as in Part A, except $p$ now represents the proportion of babies which are male rather than female.
+ 
+ \[p = \frac{983}{2009} = 0.489\]
+ 
+ \[SE = \sqrt{\frac{p(1-p)}{N}} = \sqrt{\frac{0.489(1-0.489)}{2009}} = 0.0112\]
+ 
+ \[C.I. = p \pm z*SE = 0.489 \pm 2.576*0.0112 = 0.489 \pm 0.0289 = (0.460, 0.518)\]
+ 
+ Final Answer: $0.489 \pm 0.0289 = (0.460, 0.518)$.\newline
+ 
+ \textbf{Part C: | Do these intervals overlap? what does this suggest?}\newline
+ 
+ Female Births Confidence Interval: $(0.482, 0.540)$
+ 
+ Male Births Confidence Interval: $(0.460, 0.518)$
+ 
+ There is indeed an overlap: the two intervals overlap between the values $0.482$ and $0.518$. This means that when aiming for 99\% confidence, we cannot conclusively claim that there are more females born than men. If we were to use a lower confidence interval, however, we can end up with intervals which don't overlap, but our results also become weaker (lower confidence intervals mean one can be less confident that the data falls within the given interval). 
+
+ \newpage
+ 
+ \begin{center}
+     \Large\textbf{Problem 5:} The UC Irvine Machine Learning data repository hosts a dataset giving various measurements of wine from three different regions of Italy. You can find the data at the following link: http://archive.ics.uci.edu/ml/datasets/Wine. This data was submitted by S. Aeberhard and seems to have originally been owned by M. Forina.\par
+ \end{center}
+ 
+ \textbf{Part A: | Using this data, construct a 99\% confidence interval for the mean value of the flavanoids variable for wine from region 1.}\newline
+ 
+ We will use Python to read the CSV file containing the data and calculate the standard error and mean of the data set in order to find the confidence interval. Like in problem 3, the confidence interval can be found using the following formula:
+ 
+ \[C.I. = \bar{x} \pm z*SE\]
+ 
+ where $\bar{x}$ is the sample mean, $SE$ is the standard error (calculated using the following formula: $\frac{s}{\sqrt{N}}$, where s is the sample standard deviation and N is the sample size), and z is the z-score for a 99\% confidence interval, which we found to be 2.326.
+ 
+ \[C.I. = 2.982 \pm 2.576*0.0517 = 2.982 \pm 0.133 = (2.849, 3.115)\]
+ 
+ Final answer: $2.982 \pm 0.133 = (2.849, 3.115)$\newline
+ 
+ \textbf{Part B: | Using this data, construct a 99\% confidence interval for the mean value of the flavanoids variable for wine from region 3.}\newline
+ 
+ Once again, we use python to analyze the data.
+ 
+ \[C.I. = 0.781 \pm 2.576*0.0424 = 0.781 \pm 0.109 = (0.672,0.890)\]
+ 
+ Final answer: $0.781 \pm 0.109 = (0.672,0.890)$\newline
+ 
+ \textbf{Part C: | Do these intervals overlap? what does this suggest?}\newline
+ 
+ No, the intervals do not even come close to overlapping. Because we are using 99\% confidence intervals, we can be at least 99\% confident that the average flavanoid statistic from wine coming from region 1 is higher than the flavanoid statistic from wine coming from region 3.
+ 
+ The python code is attached to the end of this pdf.\newline
+ 
+ \end{document}
+

@@ -1,0 +1,296 @@
+ \documentclass{article}
+ \usepackage{graphicx}
+ \graphicspath{ {./images/} }
+ 
+ \usepackage{hyperref}
+ \hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+ }
+
+ \usepackage{parskip}
+ \usepackage{amsmath}
+ 
+ \begin{document}
+ 
+ \begin{center}
+     \Huge\textbf{Homework 5: Sukrit Ganesh}\par
+ \end{center}
+ 
+  \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\newline
+ 
+ \begin{center}
+      \Large\textbf{Problem 1:} A coin game that is occasionally played is “odd one out”. In this game, there are rounds. In a round, each person flips a coin. There is an odd person out in that round if all but one have H and the other has T, OR all but one have T and the other has H. \par
+ \end{center}
+ 
+ \textbf{Part A: | Three people play one round. What is the probability that there is an odd person out?}\newline
+ 
+ The sample space of this game is as follows: $\{(H, H, H), (H, H, T), (H, T, H), (H, T, T)$ $(T, H, H), (T, H, T), (T, T, H), (T, T, T)\}$. In six of the eight events in the sample space, there is an "odd one out" (all the samples except $(H, H, H)$ and $(T, T, T)$). Because each event has an equal probability of occurring, the probability that there is an "odd one out" is $\frac{6}{8} = \frac{3}{4} = 0.5$.\newline
+ 
+ We can also use the binomial probability formula, $P(x)={n \choose x}p^x(1-p)^{n-x}$. In our case, we will treat H as a success and T as a failure. We want to find the probability there are two success, and we want to find the probability there are two failures (one success). Because the two events are disjoint, we can add them together to find the probability that there are either two heads or two tails; in other words, the probability that there is an "odd one out". For our formula, $p = 0.5$, $n = 3$, and $x = 1 | 2$.
+ 
+ \[P(2)={3 \choose 2}0.5^2(1-0.5)^{3-2} = 0.375\]
+ 
+ \[P(1)={3 \choose 1}0.5^1(1-0.5)^{3-1} = 0.375\]
+ 
+ \[P(1, 2)=P(1)+P(2) = 0.375 + 0.375 = 0.75\]
+
+ Final Answer: $0.75$.\newline
+ 
+ \textbf{Part B: | Now four people play one round. What is the probability that there is an odd person out?}\newline
+ 
+ We will once again binomial probability formula, $P(x)={n \choose x}p^x(1-p)^{n-x}$. In our case, we will treat H as a success and T as a failure. We want to find the probability there are three successes (three heads and one tail), and we want to find the probability there is one success (one head and three tails). Because the two events are disjoint, we can add them together to find the probability that there are either two heads or two tails; in other words, the probability that there is an "odd one out". For our formula, $p = 0.5$, $n = 4$, and $x = 1 | 3$.
+ 
+ \[P(3)={4 \choose 3}0.5^3(1-0.5)^{4-3} = 0.25\]
+ 
+ \[P(1)={4 \choose 1}0.5^1(1-0.5)^{4-1} = 0.25\]
+ 
+ \[P(1, 3)=P(1)+P(3) = 0.25 + 0.25 = 0.50\]
+ 
+ Final Answer: $0.5$.\newline
+ 
+ \textbf{Part C: | Five people play until there is an odd person out. What is the expected number of rounds that they will play? (you can save yourself quite a lot of calculation by reading Sect. 5.1.3, if you don’t mind skipping ahead a bit).}\newline
+ 
+ We must use a geometric probability distribution to model this game, because we are trying to calculate the expected number of trials until a success (an odd one out) occurs. The geometric probability expected value formula, $E[X] = \frac{1}{p}$, gives the expected number of trials until a success occurs. In this case, $p$ represents the probability an "odd one out" occurs in a round.
+ 
+ We have to first calculate $p$, the probability that an "odd one out" occurs in a given round, using the binomial probability formula: $P(x)={n \choose x}p^x(1-p)^{n-x}$. In our case, we will treat H as a success and T as a failure. We want to find the probability there are four successes (four heads and one tail), and we want to find the probability there is one success (one head and four tails). Because the two events are disjoint, we can add them together to find the probability that there are either two heads or two tails; in other words, the probability that there is an "odd one out". For our formula, $p = 0.5$, $n = 5$, and $x = 1 | 4$. \newline
+ 
+ \[P(3)={5 \choose 4}0.5^4(1-0.5)^{5-4} = 0.156\]
+ 
+ \[P(1)={5 \choose 1}0.5^1(1-0.5)^{5-1} = 0.156\]
+ 
+ \[P(1, 3)=P(1)+P(3) = 0.156 + 0.156 = 0.312\]
+ 
+ Finally, we will plug in $P(1, 3)$ as p into our expected value formula to find the expected number of trials (rounds) until an "odd one out" occurs.
+ 
+ \[E[X]=\frac{1}{p}=\frac{1}{0.156} = 3.21\]
+ 
+ Although our answer is a decimal number, it makes sense, because on average, a game will last $3.21$ rounds before an "odd one out" occurs. In other words, if a very large number of games is played, the average number of rounds until an "odd one out" occurs is $3.21$.
+ 
+ Final Answer: $3.21$.\newline
+ 
+ \newpage
+ 
+ \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\newline
+ 
+ \begin{center}
+      \Large\textbf{Problem 2:} You have a coin with unknown probability p of coming up heads. You wish to generate a random variable which takes the values 0 and 1, each with probability $\frac{1}{2}$. Assume $0 < p < 1$. You adopt the following procedure. You start by flipping the coin twice. If both flips produce the same side of the coin, you start again. If the result of the first flip is different from the result of the second flip, you report the result of the first flip and you are finished (this is a trick originally due to John von Neumann).\par
+ \end{center}
+ 
+ \textbf{Part A: | Show that, in this case, the probability of reporting heads is $\frac{1}{2}$.}\newline
+ 
+ The sample space of the two coin flips is as follows: $\{(HH), (HT), (TH), (TT)\}$. However, because we ignore all rounds which result in $(HH)$ and $(TT)$, our new sample space is simply $\{(HT), (TH)\}$. According to von Neumann's strategy, we would read the first coin's face, meaning that $HT$ would result a heads and $TH$ would result in a tails. We must prove that $P(HT) = P(TH)$. However, this isn't difficult. $P(HT) = p * (1-p)$ and $P(TH) = (1-p) * p$. We are able to multiply the probabilities of coin 1 and coin 2 being their respective values to find $P(HT)$ and $P(TH)$ because the individual coin flips are independent. We can clearly show that $P(HT) = P(TH)$, and that von Neumann's strategy does indeed work!
+ 
+ \newline
+ 
+ \textbf{Part B: | What is the expected number of flips you must make before you report a result?}\newline
+ 
+ We will once again use the binomial distribution to model the flips. In our case, we will consider getting different faces on each coin as a success and getting the same faces on each coin a failure. We must use the expected value formula for binomial distributions, $E[X] = \frac{1}{}p_s$, in order to calculate the expected number of trials before a success, where $p_s$ represents the probability of a success.
+ 
+ In order to calculate the probability of a success, we must calculate the probability that when the two coins are flipped, the coins have different faces. Because the two events are disjoint, we can add their probabilities to get the probability that both coins show the same face. Furthermore, because the two flips are independent, we can multiply the probabilities of each flip being a head or a tail to find $P(HT)$ and $P(TH)$. We will let $p$ be the probability that the coin will land on heads when flipped.
+ 
+ \[P(TH)=p*(1-p)\]
+ 
+ \[P(HT)=(1-p)*p\]
+ 
+ \[p_s = P(HT, TH)=P(HH) + P(TT) = 2p(1-p)\]
+ 
+ We will plug in $p_s$ into our expected value formula to calculate the number of trials before a result can be reported.
+ 
+ \[E[X] = \frac{1}{p_s} = \frac{1}{2p(1-p)}\]
+ 
+ Because each trial includes two flips, we must multiply the result by 2 to calculate the expected number of flips before a result.
+ 
+  \[E[flips] = 2 * \frac{1}{p_s} = 2*\frac{1}{2p(1-p)} = \frac{1}{p(1-p)}\]
+ 
+ Final Answer: $\frac{1}{p(1-p)}$.\newline
+ 
+ \newpage
+ 
+ \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\newline
+
+ \begin{center}
+      \Large\textbf{Problem 3a:} An airline runs a regular flight with six seats on it. The airline sells six tickets. The gender of the passengers is unknown at time of sale, but women are as common as men in the population. All passengers always turn up for the flight. The pilot is eccentric, and will not fly a plane unless at least one passenger is female. What is the probability that the pilot flies? (WHAT IS UP WITH PILOTS BEING SO OUT OF THEIR MIND!?!?)\par
+ \end{center}
+ 
+ The probability that the pilot will NOT fly is easy to calculate. Since the pilot simply wants at least one woman on board, he will refuse to fly ONLY when the entire plane is filled with men. Because men and women are equally common, the probability that a ticket is sold to a man is $\frac{1}{2}$. Furthermore, because everyone who booked a ticket appears to be punctual, we don't have to worry about passengers ditching their flight.
+ 
+ The probability that a specific passenger is male or female is independent of the other passengers' genders, so we can simply calculate the probability that the entire flight is male by multiplying the probabilities of each of the six passengers being male. We will let $P(x)$ be the probability that $x$ females are on board.
+ 
+ \[P(x=0) = (\frac{1}{2})^6 = \frac{1}{64}\]
+
+ \[P(x \geq 1) = 1 - P(x=0) = 1 - \frac{1}{64} = \frac{63}{64}\] 
+ 
+ Final Answer: $\frac{63}{64}$.\newline
+ 
+ \newpage
+ 
+ \begin{center}
+      \Large\textbf{Problem 3b:} An airline runs a regular flight with s seats on it. The airline always sells t tickets for this flight. The probability a passenger turns up for departure is p, and passengers do this independently. What is the probability that the plane travels with 1 or more empty seats? (FINALLY! AN AIRPLANE FLOWN BY A SANE PILOT!)\par
+ \end{center}
+ 
+ We must model the number of passengers who show up for the flight as a binomial distribution. We know that passengers arrive with probability $p$, $t$ tickets are sold, and $s$ seats are available. Let $x$ be the number of passengers who show up. If $0 \leq x \leq s - 1$, then there will be empty seats on the flight, since the number of passengers who show up is less than the number of seats on the airplane.
+ 
+ The binomial probability formula, $P(x)={n \choose x}p^x(1-p)^{n-x}$, calculates the probability that $x$ trials are successful, given that $n$ trials take place, and $p$ is the probability that a trial is successful. In our case, we will treat a passenger showing up as a success, and we will let $n$ be the number of tickets sold and $p$ be the probability that a passenger shows up for the flight. Because $P(x=0), P(x=1), ... , P(x=s-1)$ are disjoint events, we can calculate $P(0 \leq x \leq s-1)$ by summing up the probabilities $P(x=X)$, where $0 \leq X \leq s-1$.
+ 
+ \[P(x=X) = {t \choose X}p^X(1-p)^{t-X}\]
+ 
+ \[P(0 \leq x \leq s-1) = \sum_{x=0}^{s-1}{t \choose x}p^x(1-p)^{t-x}\]
+ 
+ Note that if $t < s$, $P(x=N)$, where $N \geq t$, is equal to 0, and $\sum_{x=0}^{s-1}P(x) = 1$. This means that if the airline sells fewer tickets than seats, the plane will definitely fly with empty seats. \newline
+ 
+ Final Answer: $P(0 \leq x \leq s-1) = \sum_{x=0}^{s-1}{t \choose x}p^x(1-p)^{t-x}$.\newline
+ 
+ \newpage
+ 
+ \begin{center}
+    \Large\textbf{Problem 4:} Suppose you flip a fair coin $N$ times. Let random variable $h$
+    be the number of heads that occur. Use the normal approximation to estimate the following probabilities. Write your answers using integrals. Do not evaluate the integrals.\par
+ \end{center}
+ 
+ \textbf{Part A: | $P(h \in [495000,505000])$ given that $N=10^6$.}\newline
+ 
+ Assuming the coin is flipped 1,000,000 times, we expect a mean of 500,000 heads because the coin is fair, and thus, we expect half the flips to be heads. Although flipping coins is technically a binomial probability distribution, it can be approximated using a normal distribution because the number of trials is very large and the probability of a success (heads) is as close to $\frac{1}{2}$ as it can get. The following is the normal distribution probability density function:
+ 
+ \[\rho(x) = \frac{1}{\sigma\sqrt{2\pi}}e^\frac{-(x-\mu)^2}{2\sigma^2}\]
+ 
+ In the above formula, $\sigma$ is the standard deviation, $\mu$ is the mean, and $x$ is the number of heads. By taking the integral of that function with respect to $x$ from $x_1$ to $x_2$, we can find the probability that the number of heads that show up in 1,000,000 coin tosses is between $x_1$ and $x_2$.
+ 
+ Obviously, we must first calculate $\sigma$. This is not difficult, because we know the variance (equal to $\sigma^2$) of a binomial distribution can be calculated using the following formula: $Var[X] = n*p*(1-p)$, where $n$ is the number of trials, and $p$ is the probability that a trial is successful (in this case, heads counts as a success).
+ 
+ \[ \sigma^2 = Var[x] = n*p*(1-p) = 1000000*0.5*(1-0.5) = 250000 \]
+ 
+ \[ \sigma = \sqrt{250000} = 500 \]
+ 
+ Now that we have all numbers, we simply have to take the integral of the normal distribution probability density function from $495000$ to $505000$.
+ 
+ \[ P(h \in [495000,505000]) = \int_{495000}^{505000}\frac{1}{\sigma\sqrt{2\pi}}e^\frac{-(x-\mu)^2}{2\sigma^2}dx\]
+ 
+ \[ P(h \in [495000,505000]) = \int_{495000}^{505000}\frac{1}{500\sqrt{2\pi}}e^\frac{-(x-500000)^2}{500000}dx\]
+ 
+ Final answer: $P(h \in [495000,505000]) = \int_{495000}^{505000}\frac{1}{500\sqrt{2\pi}}e^\frac{-(x-500000)^2}{500000}dx$\newline
+ 
+ \textbf{Part B: | $P(h > 9000)$ given that $N=10^4$.}\newline
+ 
+ Once again, we will use a normal distribution to approximate the binomial distribution. In this case, we must take the integral of the normal distribution from $9000$ to $\infty$ with respect to $x$, the number of heads. We must also calculate $\sigma$ using the variance formula for a binomial distribution. We know that $\mu$ is 5000 if 10000 flips occur, because the coin is fair and, on average, half of all flips will be heads. We will use $10000$ for $n$ and $0.5$ for $p$.
+ 
+ \[Var[x] = p*(1-p)*n = 0.5*0.5*10000 = 2500\]
+ 
+ \[\sigma = \sqrt{2500} = 50 \]
+ 
+ \[ P(h > 9000) = \int_{9000}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^\frac{-(x-\mu)^2}{2\sigma^2}dx\]
+ 
+ \[ P(h > 9000) = \int_{9000}^{\infty}\frac{1}{50\sqrt{2\pi}}e^\frac{-(x-5000)^2}{5000}dx\]
+ 
+ Final answer: $P(h > 9000) = \int_{9000}^{\infty}\frac{1}{50\sqrt{2\pi}}e^\frac{-(x-5000)^2}{5000}dx$\newline
+ 
+ \textbf{Part C: | $P(h > 40 $ or $h > 60)$ given that $N=10^2$.}\newline
+ 
+ Once again, we will use a normal distribution to approximate the binomial distribution. In this case, we must take the integral of the normal distribution from $-\infty$ to $40$ and from $60$ to $\infty$ with respect to $x$, the number of heads. We must also calculate $\sigma$ using the variance formula for a binomial distribution. We know that $\mu$ is 50 if 100 flips occur, because the coin is fair and, on average, half of all flips will be heads. We will use 100 for $n$ and $0.5$ for $p$.
+ 
+ \[Var[x] = p*(1-p)*n = 0.5*0.5*100 = 25\]
+ 
+ \[\sigma = \sqrt{2500} = 5 \]
+ 
+ \[ P(h < 40 | h > 60) = \int_{-\infty}^{40}\frac{1}{\sigma\sqrt{2\pi}}e^\frac{-(x-\mu)^2}{2\sigma^2}dx+
+ \int_{60}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^\frac{-(x-\mu)^2}{2\sigma^2}dx\]
+ 
+ \[ P(h < 40 | h > 60) = \int_{-\infty}^{40}\frac{1}{5\sqrt{2\pi}}e^\frac{-(x-50)^2}{50}dx+
+ \int_{60}^{\infty}\frac{1}{5\sqrt{2\pi}}e^\frac{-(x-50)^2}{50}dx\]
+ 
+ Final answer: $P(h < 40 | h > 60) = \int_{-\infty}^{40}\frac{1}{5\sqrt{2\pi}}e^\frac{-(x-50)^2}{50}dx+
+ \int_{60}^{\infty}\frac{1}{5\sqrt{2\pi}}e^\frac{-(x-50)^2}{50}dx$\newline
+ 
+ \newpage
+ 
+ \begin{center}
+    \Large\textbf{Problem 5:} Let's say you check the CS 361 piazza at the top of the hour every hour (both day and night). The posts arrive independently at an average rate of 0.1 posts per hour, which means that the number of new posts each time you look is a Poisson random variable with intensity $\lambda=0.1$. Answer each of the following questions with an expression of form $Ae^B$ and then do evaluate the expression as a number.\par
+ \end{center}
+ 
+ \textbf{Part A: | What is the probability that there are no new posts when you look?}\newline
+ 
+ We will model this problem as a Poisson distribution. The formula for Poisson distribution is as follows:
+ 
+ \[P(X=x) = \frac{\lambda^xe^{-\lambda}}{x!}\]
+ 
+ In the above formula, $\lambda$ is the intensity; in this case, it represents the average rate of posts per hour, because we check Piazza every hour and care about the number of new posts that come up in one hour. We are given that the average rate of posts per hour is 0.1, so we simply set $\lambda = 0.1$.
+ 
+ \[P(x=0) = \frac{0.1^0e^{-0.1}}{0!} = \frac{1*e^{-0.1}}{1} = e^{-0.1}\]
+ 
+ Now that we have an answer in the form $Ae^b$, we can evaluate the expression to find the actual probability.
+ 
+ \[P(x=0) = e^{-0.1} = 0.905\]
+ 
+ Final answer: $P(x=0) = e^{-0.1} = 0.905$\newline
+ 
+ \textbf{Part B: | What is the probability that there is exactly one new post when you look?}\newline
+ 
+ We will once again model this problem as a Poisson distribution. However, we will set $x=1$, because we are trying to calculate the probability that there is exactly one new post in one hour.
+ 
+ \[P(x=1) = \frac{0.1^1e^{-0.1}}{1!} = \frac{0.1*e^{-0.1}}{1} = 0.1e^{-0.1}\]
+ 
+ Now that we have an answer in the form $Ae^b$, we can evaluate the expression to find the actual probability.
+ 
+ \[P(x=1) = 0.1e^{-0.1} = 0.0905\]
+ 
+ Final answer: $P(x=0) = 0.1e^{-0.1} = 0.0905$\newline
+ 
+ \textbf{Part C: | What is the probability that there are exactly two new posts when you look?}\newline
+ 
+ We will once again model this problem as a Poisson distribution. However, we will set $x=2$, because we are trying to calculate the probability that there are exactly two new posts in one hour.
+ 
+ \[P(x=2) = \frac{0.1^2e^{-0.1}}{2!} = \frac{0.01*e^{-0.1}}{2} = 0.005e^{-0.1}\]
+ 
+ Now that we have an answer in the form $Ae^b$, we can evaluate the expression to find the actual probability.
+ 
+ \[P(x=2) = 0.005e^{-0.1} = 0.00452\]
+ 
+ Final answer: $P(x=0) = 0.005e^{-0.1} = 0.00452$\newline
+ 
+ \textbf{Part D: | d up with this unsatisfying routine, you decide to sign up for daily digest emails. What is the probability that on a given day you do not receive a daily digest email at 1pm? In other words, what is the probability that at 1pm there were no new posts in the preceding 24 hours?}\newline
+ 
+ We will once again model this problem as a Poisson distribution. However, $\lambda$ must now represent the average number of new posts in one day (24 hours), not one hour. Since we know that, on average, there will be 0.1 new posts every hour, we can easily calculate lambda (the average number of new posts over 24 hours) by multiplying 0.1 with the number of hours in a day: $\lambda=24*0.1=2.4$. We will set $x=0$, because we are trying to calculate the probability that there are NO new posts on one day.
+ 
+ \[P(x=2) = \frac{2.4^0e^{-2.4}}{0!} = \frac{1*e^{-2.4}}{1} = e^{-2.4}\]
+ 
+ Now that we have an answer in the form $Ae^b$, we can evaluate the expression to find the actual probability.
+ 
+ \[P(x=2) = e^{-2.4} = 0.0907\]
+ 
+ Final answer: $P(x=2) = e^{-2.4} = 0.0907$\newline
+ 
+ \newpage
+ 
+  \begin{center}
+    \Large\textbf{Problem 6:} Show that a geometric distribution with parameter $p$ has variance $\frac{1-p}{p^2}$. To do this, note the variance is $E[X^2]-{E[X]}^2$. Now use the results of the previous exercises to show that 
+ 
+    \[E[X^2]=\sum_{i=1}^{\infty}i^2(1-p)^{(i-1)}p=\frac{p}{1-p}\frac{(1-p)(2-p)}{p^3}\]
+ 
+    then rearrange to get the expression for variance.\par
+    
+ \end{center}
+ 
+ .\newline
+ 
+ We already know that $\sum_{i=1}^{\infty}i(1-p)^{(i-1)}p=\frac{1}{p}$.\newline
+ 
+ Because $E[X^2] = \sum_{i=1}^{\infty}i^2(1-p)^{(i-1)}p$, we can show that $E[X^2]=\sum_{i=1}^{\infty}i^2(1-p)^{(i-1)}p=\frac{p}{1-p}\frac{(1-p)(2-p)}{p^3}$ by the laws of summation, because we are simply multiplying every element of the summation by $i$.\newline
+ 
+ We can simplify $\frac{p}{1-p}\frac{(1-p)(2-p)}{p^3}$ to $\frac{2-p}{p^2}$.\newline
+ 
+ Because $Var[X] = E[X^2] - E[X]^2$, and $E[X]$ of a geometric distribution is $\frac{1}{p}$, we can show the following:
+ 
+ \[Var[X] = E[X^2] - E[X]^2 = \frac{2-p}{p^2} - (\frac{1}{p})^2\]
+ 
+ \[= \frac{2-p}{p^2} - \frac{1}{p^2}\]
+ 
+ \[= \frac{1-p}{p^2}\]
+ 
+ \begin{center}
+     \Large\textbf{Q.E.D. :)}
+ \end{center}
+ 
+ \end{document}
+

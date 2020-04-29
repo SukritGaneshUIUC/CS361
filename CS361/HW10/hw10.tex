@@ -1,0 +1,76 @@
+ \documentclass{article}
+ \usepackage{graphicx}
+ \graphicspath{ {./images/} }
+ 
+ \usepackage{hyperref}
+ \hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+ }
+
+ \usepackage{parskip}
+ \usepackage{amsmath}
+ 
+ \begin{document}
+ 
+ \begin{center}
+     \Huge\textbf{Homework 10: Sukrit Ganesh}\par
+ \end{center}
+ 
+  \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\newline
+ 
+ \begin{center}
+      \Large\textbf{Problem 1:} The UC Irvine machine learning data repository hosts a collection of data on whether a mushroom is edible, donated by Jeff Schlimmer and to be found at http://archive.ics.uci.edu/ml/datasets/Mushroom. This data has a set of categorical attributes of the mushroom, together with two labels (poisonous or edible). Use the R random forest package (as in the example in the chapter) to build a random forest to classify a mushroom as edible or poisonous based on its attributes. \par
+ \end{center}
+ 
+ \textbf{Part A: | Produce a class-confusion matrix for this problem. If you eat a mushroom based on your classifier’s prediction it is edible, what is the probability of being poisoned?}\newline
+ 
+ Confusion Matrix: 
+ $\begin{bmatrix}
+     782 & 0\\
+     0 & 843
+ \end{bmatrix}$
+ 
+ The predictor turned out to be incredibly accurate. In fact, it achieved $100\%$ accuracy on the test data! The predictor didn't predict a single poisonous mushroom as edible!
+ 
+ \href{https://colab.research.google.com/drive/1fXUYFu60kAVWE0G_9JVYSO7rCusaLWYm}{Click Here for Jupyter Notebook}. Note: Jupyter Notebook cannot be executed due to access restrictions.
+ 
+ \newpage
+ 
+ \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\newline
+ 
+ \begin{center}
+      \Large\textbf{Problem 2:} Build a decision tree with a depth of 50 for the following dataset. In addition, build a random forest classifier with 100 estimators and a depth of 50 for the following dataset \href{https://archive.ics.uci.edu/ml/datasets/EEG+Eye+State}{EEG Eye State}. \par
+ \end{center}
+ 
+ \textbf{Part A: | Why does random forest perform better than the decision tree?}\newline
+ 
+ We see that the random forest has a prediction accuracy of 92.02\%, whereas the decision tree only has a prediction accuracy of 83.95\%. The random forest allows us to use multple trees, allowing for better and more effective classification, whereas the decision tree contains only one tree of a limited depth. A random forest of the same depth as a decision tree usually performs better, although this is not always the case (as we will see in problem 3).
+ 
+ \href{https://colab.research.google.com/drive/1tRECEyVDIe6S6kTx38TVnlEZE0oh4O9J}{Click Here for Jupyter Notebook}. This notebook contains the decision tree visualization, confusion matrices, and python code. Note: Jupyter Notebook cannot be modified or executed by reader due to access restrictions.
+
+ \textbf{Part B: | Can we change the depth to the extent that decision tree performs much better than random forest? Explain your reasoning with solid evidence.}\newline
+ 
+ No. I experimented with different depths and was unable to significantly improve the accuracy of the decision tree. Keeping the random forest depth at 50, I tried manipulating the depth of the decision tree and could not increase its accuracy. Increasing the depth may cause over-fitting, while decreasing the depth may reduce accuracy. It appears that the different classifiers have limits, and while it is possible to get a decision tree which is better than a random forest, the random forest will ultimately win out in this case because it is usually a more robust classifier.
+ 
+ \newpage
+
+ \begin{center}
+      \Large\textbf{Problem 3:} Build a decision tree with a depth of 50 for the following dataset. In addition, build a random forest classifier with 100 estimators and a depth of 50 for the following dataset: \href{https://archive.ics.uci.edu/ml/datasets/Haberman's+Survival}{Haberman's Survival}.
+      \par
+ \end{center}
+
+ \textbf{Part A: | Why does the dataset work poorly with decision trees and random forests?}\newline
+ 
+ We see that the random forest has a prediction accuracy of 64.52\%, whereas the decision tree only has a prediction accuracy of 64.52\%. What a coincidence! There's not enough features to get an effective classification. Ultimately, the data is not good enough to get an effective classification, and we need more features!
+ 
+ \href{https://colab.research.google.com/drive/10dv-PY23SnotLZtXZajzoBCYQMiqAmx5}{Click Here for Jupyter Notebook}. This notebook contains the decision tree visualization, confusion matrices, and python code. Note: Jupyter Notebook cannot be modified or executed by reader due to access restrictions.
+ 
+ \textbf{Part B: | Can we clearly say if one of these is better than the other? Why or why not?}\newline
+ 
+ No. We got very similar accuracies for both while using a depth of 50. Changing the depths don't significantly affect the accuracies, and we can conclude that both methods of classification aren't particularly effective.
+ 
+ \end{document}
+

@@ -1,0 +1,329 @@
+ \documentclass{article}
+ \usepackage{graphicx}
+ \graphicspath{ {./images/} }
+ 
+ \usepackage{hyperref}
+ \hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+ }
+
+ \usepackage{parskip}
+ 
+ \begin{document}
+ 
+ \begin{center}
+     \Huge\textbf{Homework 3: Sukrit Ganesh}\par
+ \end{center}
+ 
+  \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\newline
+ 
+ \begin{center}
+      \Large\textbf{Problem 1:} Suppose that among the 151 students registered in CS 361, there are 128 students that have taken both a calculus and a linear algebra class in the past, and there are 2 students that have taken neither. \par
+ \end{center}
+ 
+ \textbf{Part A: | How many students have taken at least one of those two math classes in the past?}\newline
+ 
+ Let A be the set of students who took calculus and B be the set of students who took linear algebra. We know that $|A \cap B| = 128$ and $|A^C \cap B^C| = 2.$\newline
+ 
+ We need to find $|A \cup B|$. Because there are 151 students in the class and only 2 have not taken calculus or linear algebra, $ |A \cup B| = |U - A^C \cap B^C| = |U| - |A^C \cap B^C| = 151 - 2 = 149.$ \newline
+ 
+ Final Answer: 149.\newline
+ 
+ \textbf{Part B: | Now suppose furthermore that the number of students that have not taken linear algebra is 4 times the number of students that have not taken calculus. How many students have taken a linear algebra class in the past?.}\newline
+ 
+ Since 151 people take CS 361 and 128 have taken both calculus and linear algebra, then 23 people have taken either one or none of the two math courses. Of the 23 students, let C be the set of students who have NOT taken linear algebra and D be the set of students who have NOT taken calculus (how did you even make it to CS 361 without calculus!?!?).\newline
+ 
+ We know that $|C| = 4|D|$ and that $|C \cup D| = 23$ and $|C \cap D| = 2$. Because $|C \cup D| = |C| + |D| - |C \cap D|$, we show that $23 = |D| + 4|D| - 2$. Hence, we get $|D| = 5 and |C| = 4|D| = 20$, meaning that 5 students have never taken calculus and 20 students have never taken linear algebra. Therefore, since there are 151 students in the class and 20 have never taken linear algebra, then 131 have taken linear algebra. \newline
+ 
+ Final Answer: 131. \newline
+
+ \newpage
+ 
+ \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\newline
+ 
+ \begin{center}
+      \Large\textbf{Problem 2:} You shuffle a standard deck of cards, then draw four cards.\par
+ \end{center}
+ 
+ \textbf{Part A: | What is the probability all four are the same suit?}\newline
+ 
+ There are 52 cards and 4 suits in the deck. Drawing a card reduces both the size of the deck and the number of cards of that suit in the deck by 1. The first card can be of any suit, but the three subsequent cards must be from that exact suit. The probability that all four cards are of the same suit is $\frac{52}{52} * \frac{12}{51} * \frac{11}{50} * \frac{10}{49} = \frac{12}{51} * \frac{11}{50} * \frac{10}{49}$.\newline
+ 
+ 
+ Final Answer: $\frac{12}{51} * \frac{11}{50} * \frac{10}{49}$.\newline
+ 
+ \textbf{Part B: | What is the probability all four are red?}\newline
+ 
+ Of the 52 cards, 26 are red (diamonds and hearts). The first card can only be a red card, as must the subsequent 3 cards. The number of red cards as well as the size of the deck decrease by 1 when a card is drawn. We find that the probability that all four cards are red is $\frac{26}{52} * \frac{25}{51} * \frac{24}{50} * \frac{23}{49}$.\newline
+ 
+ Final Answer: $\frac{26}{52} * \frac{25}{51} * \frac{24}{50} * \frac{23}{49}$.\newline
+ 
+ \textbf{Part C: | What is the probability each has a different suit?}\newline
+ 
+ The first can be of any suit, but the second, third, and fourth cards must be from different suits. The second card can be from any one of the three remaining suits, the third card can be from any one of the two remaining suits, and the fourth card must be from the last remaining suit. The size of the deck decreases by 1 when a card is drawn, but the sizes of the remaining suits remain the same. We find that the probability that all four cards are from a different suit is $\frac{52}{52} * \frac{39}{51} * \frac{26}{50} * \frac{13}{49} = \frac{39}{51} * \frac{26}{50} * \frac{13}{49}$.\newline
+ 
+ Final Answer: $\frac{39}{51} * \frac{26}{50} * \frac{13}{49}$.\newline
+ 
+ \newpage
+
+ \begin{center}
+      \Large\textbf{Problem 3:} Magic the Gathering is a popular card game. Cards can be land cards, or other cards. We consider a game with two players. Each player has a deck of 40 cards. Each player shuffles their deck, then deals seven cards, called their hand.\par
+ \end{center}
+
+ \textbf{Part A: | Assume that player one has 10 land cards in their deck and player two has 20. With what probability will each player have four lands in their hand?}\newline
+ 
+ We will first find the individual probabilities that each player has four lands in their hand. Multiplying those two probabilities together gives the probability that both players have four lands in their hands.\newline
+ 
+ In order to calculate the probabilities, we will first find $E_{4A}$ and $E_{4B}$ - the events that players A and B have four lands, respectively. Player A's deck has 10 land cards while Player B's deck has 20 land cards. Then, we will divide the magnitude of those events by the size of the sample space $S$ - the total number of combinations of 7 cards picked from a deck of 40. To find the numerators, we will need to choose 4 cards from the deck's land cards and 3 cards from the deck's non-land cards. We will treat every card as unique for the purposes of the calculation. \newline
+
+ \begin{displaymath}
+    |E_{4A}| = {10 \choose 4}{30 \choose 3}
+ \end{displaymath}
+ 
+ \begin{displaymath}
+    |E_{4B}| = {20 \choose 4}{20 \choose 3}
+ \end{displaymath}
+ 
+ \begin{displaymath}
+    |S| = {40 \choose 7}
+ \end{displaymath}
+ 
+ Using the above values, we calculate the probability that both players have four land cards in their hand, where $P(A4)$ and $P(B4)$ are the probabilities that players A and B, respectively, have four land cards: 
+ 
+ \begin{displaymath}
+    P(both 4) = P(A4) * P(B4) = \frac{{10 \choose 4}{30 \choose 3}}{{40 \choose 7}} * \frac{{20 \choose 4}{20 \choose 3}}{{40 \choose 7}} = \frac{{10 \choose 4}{30 \choose 3}{20 \choose 4}{20 \choose 3}}{{40 \choose 7}^2}
+ \end{displaymath}
+ 
+ Final Answer: $\frac{{10 \choose 4}{30 \choose 3}{20 \choose 4}{20 \choose 3}}{{40 \choose 7}^2}$.\newline
+ 
+ \textbf{Part B: | Assume that player one has 10 land cards in their deck and player two has 20. With what probability will player one have two lands and player two have three lands in hand?}\newline
+ 
+ The logic to solving this problem is very similar to Part A. We must find $P(A2)$ and $P(B3)$ - the probabilities that Player A has 2 land cards and Player B has 3 land cards, respectively. \newline
+ 
+ \begin{displaymath}
+    P(A2) = \frac{{10 \choose 2}{30 \choose 5}}{{40 \choose 7}}
+ \end{displaymath}
+ 
+ \begin{displaymath}
+    P(B3) = \frac{{20 \choose 3}{20 \choose 4}}{{40 \choose 7}}
+ \end{displaymath}
+ 
+ \begin{displaymath}
+     P(A2B3) = P(A2)P(B3) = \frac{{10 \choose 2}{30 \choose 5}}{{40 \choose 7}} * \frac{{20 \choose 3}{20 \choose 4}}{{40 \choose 7}} = \frac{{10 \choose 2}{30 \choose 5}{20 \choose 3}{20 \choose 4}}{{40 \choose 7}^2}
+ \end{displaymath}
+ 
+ \textbf{Part C: |Assume that player one has 10 land cards in their deck and player two has 20. With what probability will player two have more lands in hand than player one?}\newline
+ 
+ This problem's complexity means that it cannot be represented as a simple single probability. In this case, we need to sum up a multitude of probabilities. If player one has 0 lands, player two can have 1, 2, 3, 4, 5, 6, or 7 lands. If player one has 1 land, player two can have 2, 3, 4, 5, 6, or 7 lands. The pattern continues until player one has 6 lands, in which case player 7 can only have 7 lands. \newline
+ 
+ The probability that player one has $i$ lands and player two has $j$ lands is as follows:
+ 
+ \begin{displaymath}
+ \frac{{10 \choose i}{30 \choose 7-i}{20 \choose j}{20 \choose 7-j}}{{40 \choose 7}{40 \choose 7}}
+ \end{displaymath}
+ 
+ To get the probability that player two has more lands than player one, we must sum up the probabilities for all i between 0 and 6 and all j between i + 1 and 7.
+ 
+ \begin{displaymath}
+ \sum_{i=0}^{6}\sum_{j=i+1}^{7}\frac{{10 \choose i}{30 \choose 7-i}{20 \choose j}{20 \choose 7-j}}{{40 \choose 7}{40 \choose 7}}
+ \end{displaymath}
+ 
+ \newpage
+ 
+ \begin{center}
+      \Large\textbf{Problem 4:} Suppose that a student is registered in a previous semester in Math 225 \href{https://courses.illinois.edu/schedule/2019/spring/MATH/225}{(course explorer)} and CS 361 \href{https://courses.illinois.edu/schedule/2019/spring/CS/361}{(course explorer)}. In this problem, you will think about the student's registration in combinations of sections of these two classes. Assume that the student's other classes do not conflict with any sections of Math 225 or CS 361.\par
+ \end{center}
+
+ \textbf{Part A: | rite down the sample space of all valid non-conflicting registrations in Math 225 and CS 361. Use the following notation: $(P1, AL1, ADA)$ is the outcome that means the student is in Math 225 P1 and CS 361 AL1 and ADA.}\newline
+ 
+ Final Answer: {(P1, AL1, ADA), (P1, AL1, ADB), (P1, AL1, ADC), (P1, AL1, ADD), (S1, AL1, ADA), (S1, AL1, ADB), (S1, AL1, ADC), (S1, AL1, ADD), (S1, AL1, ADE)}.\newline
+ 
+ \textbf{Part B: | Now assume that the outcomes you listed in part (a) are equally probable. Let $E_{P1}$ be the event that the student is registered in Math 225 P1, and so on for other sections.}\newline
+ 
+ \textbf{i | Are $E_{P1}$ and $E_{AL1}$ independent? Justify your answer with calculations.}\newline
+ 
+ By definition, two independent events have the following property: $P(A)P(B) = P(A \cap B)$. We know that $P(E_{P1}) = \frac{4}{9}$ and $P(E_{AL1}) = \frac{9}{9}.$ Therefore, $P(E_{P1})(E_{AL1}) = \frac{36}{81} = \frac{4}{9}$. Furthermore, we find that $P({E_{P1}} \cap {E_{AL1}}) = \frac{4}{9}$. Because $P({E_{P1}})P({E_{AL1}}) = P({E_{P1}} \cap {E_{AL1}})$, the two events are independent. \newline
+ 
+ Final Answer: Independent.\newline
+ 
+ \textbf{ii: | Are $E_{P1}$ and $E_{ADE}$ independent? Justify your answer with calculations.}\newline
+ 
+ We know that $P(E_{P1}) = \frac{4}{9}$ and $P(E_{ADE}) = \frac{1}{9}.$ Therefore, $P(E_{P1})(E_{AL1}) = \frac{4}{81}$. However, $P({E_{P1}} \cap {E_{ADE}}) = \frac{0}{9} \neq \frac{4}{81}$. Therefore, the two events are not independent. \newline
+ 
+ Final Answer: Not independent.\newline
+ 
+ \textbf{iii: | Are $E_{S1}$ and $E_{ADA}$ independent? Justify your answer with calculations.}\newline
+ 
+ We know that $P(E_{S1}) = \frac{5}{9}$ and $P(E_{ADA}) = \frac{2}{9}.$ Therefore, $P(E_{P1})(E_{AL1}) = \frac{10}{81}$. However, $P({E_{S1}} \cap {E_{ADA}}) = \frac{1}{9} \neq \frac{10}{81}$. Therefore, the two events are not independent. \newline
+  
+ Final Answer: Not independent.\newline
+ 
+ \newpage
+ 
+ \begin{center}
+     \Large\textbf{Problem 5:} A student takes a multiple choice test. Each question has $N$ answers. If the student knows the answer to a question, the student gives the right answer, and otherwise guesses uniformly and at random. The student knows the answer to $70$ percent of the questions. Write $K$ for the event a student knows the answer to a question and $R$ for the event the student answers the question correctly.\par
+ \end{center}
+ 
+ \textbf{Part A: | What is $P(K)$?}\newline
+ 
+ Final answer: $P(K) = 0.7$\newline
+ 
+ \textbf{Part B: | What is $P(R | K)$?}\newline
+ 
+ Final answer: $P(R | K) = 1.0$\newline
+ 
+ \textbf{Part C: | What is $P(K | R)$, as a function of $N$?}\newline
+ 
+ According to the Bayes' Theorem, $P(K | R) = \frac{P(R | K)P(K)}{P(R)} = \frac{1.0 * 0.7}{P(R)}.$ We need to find  $P(R),$ the probability that the student answers a question correctly. The student will answer 70 percent of the questions correctly, since he knows the answer. The student will answer the remaining 30 percent of the questions with a probability of $1/N$, since each question has $N$ choices. Because the two aformentioned events are disjoint (a student can never know and not know a question), we can simply add those two probabilities together to calculate the probability that the student answers a question correctly: $P(R) = 0.7 + 0.3*\frac{1}{N} = 0.7 + \frac{0.3}{N}$.\newline
+ 
+ By substituting the above statement in the Bayes' Formula, we get that $P(K | R) = \frac{0.7}{ 0.7 + \frac{0.3}{N}}$.
+ 
+ Final answer: $\frac{0.7}{0.7 + \frac{0.3}{N}}$\newline
+ 
+ \textbf{Part D: | What values of $N$ will ensure that $P(K | R) > 99\%$?}\newline
+ 
+ We know that $P(K | R) = \frac{0.7}{ 0.7 + \frac{0.3}{N}}$. We will find the values of $N$ for which $P(K | R) > 0.99$.
+ 
+ \begin{displaymath}
+    \frac{0.7}{0.7 + \frac{0.3}{N}} > 0.99
+ \end{displaymath}
+ 
+ \begin{displaymath}
+    \frac{0.7}{0.99} > 0.7 + \frac{0.3}{N}
+ \end{displaymath}
+ 
+ \begin{displaymath}
+    \frac{0.7}{0.99} - 0.7 > \frac{0.3}{N}
+ \end{displaymath}
+ 
+ \begin{displaymath}
+    N > \frac{0.3}{\frac{0.7}{0.99} - 0.7}
+ \end{displaymath}
+ 
+ \begin{displaymath}
+    N > \frac{0.3}{\frac{0.7}{0.99} - 0.7}
+ \end{displaymath}
+ 
+ \begin{displaymath}
+    N > 42.43
+ \end{displaymath}
+ 
+ Because N must be an integer, we find that $N > 43$. This means that if each question on the test has at least 43 choices, the probability that the test-taker knows the answer to a question given the fact that he got it correct is greater than $99\%$.
+ 
+ Final answer: $43$\newline
+ 
+ \newpage
+ 
+ \begin{center}
+     \Large\textbf{Problem 6:} Let $A$, $B$, and $C$ be events in a sample space while A and B are disjoint events We know $P(A) = 2P(B)$, $P(C|A) = \frac{2}{7}$, $P(C|B) = \frac{4}{7}$. What is $P(C|(A \cup B))$?\par
+ \end{center}
+ 
+ The rule of multiplication allows us to express the equation in a different form.
+ 
+ \begin{equation}
+    P(C|(A \cup B)) = \frac{P((A \cup B) \cap C)}{P(A \cup B)}
+ \end{equation}
+ 
+ \begin{equation}
+    = \frac{P((A \cap C) \cup (B \cap C)}{P(A \cup B)}
+ \end{equation}
+ 
+ \begin{equation}
+    = \frac{P(A \cap C) + P(B \cap C) - P((A \cap C) \cap (B \cap C))}{P(A \cup B)} 
+ \end{equation}
+ 
+ \begin{equation}
+    = \frac{P(A \cap C) + P(B \cap C) - P(A \cap C \cap B \cap C)}{P(A \cup B)}
+ \end{equation}
+ 
+ Because A and B are disjoint, by definition, $(A \cap B) = \emptyset$. Because intersection is associative, and the intersection of any set with $\emptyset$ is $\emptyset$, and the probability of an empty event set is $0$, $P(A \cap C \cap B \cap C) = 0$.
+ 
+ \begin{equation}
+    = \frac{P(A \cap C) + P(B \cap C)}{P(A \cup B)}
+ \end{equation}
+ 
+ We can use the multiplication rule to rewrite $(A \cap C)$ and $(A \cap B)$.
+ 
+ \begin{equation}
+    = \frac{P(C|A)P(A) + P(C|B)P(B)}{P(A \cup B)}
+ \end{equation}
+ 
+ Because $A$ and $B$ are disjoint, $P(A \cup B) = P(A) + P(B)$.
+ 
+ \begin{equation}
+    = \frac{P(C|A)P(A) + P(C|B)P(B)}{P(A) + P(B)}
+ \end{equation}
+ 
+ We are given the following three equations: $P(A) = 2P(B)$, $P(C|A) = \frac{2}{7}$, and $P(B|A) = \frac{4}{7}$. By substituting them into our main equation, we can eliminate both P(A) and P(B) and solve the equation.
+ 
+ \begin{equation}
+    = \frac{2P(C|A)P(B) + P(C|B)P(B)}{3P(B)} 
+ \end{equation}
+ 
+ \begin{equation}
+    = \frac{P(B)(2P(C|A) + P(C|B))}{3P(B)} 
+ \end{equation}
+ 
+ \begin{equation}
+    = \frac{2P(C|A) + P(C|B)}{3}
+ \end{equation}
+ 
+ \begin{equation}
+    = \frac{2*\frac{2}{7} + \frac{4}{7}}{3}
+ \end{equation}
+ 
+ \begin{equation}
+    = \frac{8}{21}
+ \end{equation}
+ 
+ Final Answer: $\frac{8}{21}$\newline
+ 
+ \newpage
+
+ \begin{center}
+     \Large\textbf{Problem 6 DISCARD:} Let $A$, $B$, and $C$ be events in a sample space while A and B are disjoint events We know $P(A) = 2P(B)$, $P(C|A) = \frac{2}{7}$, $P(C|B) = \frac{4}{7}$. What is $P(C|(A \cup B))$?\par
+ \end{center}
+ 
+ We will first use the Bayes Theorem to rearrange the expression.
+ 
+ \begin{equation}
+    P(C|(A \cup B)) = \frac{P((A \cup B) | C)P(C)}{P(A \cup B)}
+ \end{equation}
+ 
+  Because $A$ and $B$ are disjoint events, $P(A \cup B) = P(A) + P(B)$. 
+  
+ \begin{equation}
+     = \frac{P((A \cup B) | C)P(C)}{P(A) + P(B)}
+ \end{equation}
+ 
+ Once again, because $A$ and $B$ are disjoint, the probability that $(A \cup B)$ will happen given $C$ is equal to the probability that $A$ will happen given $C$ plus the probability that $B$ will happen given $C$. In effect, we can make the following substitution: $P((A \cup B) | C) = P(A|C) + P(B|C)$.
+ 
+ \begin{equation}
+     = \frac{(P(A|C)+P(B|C))P(C)}{P(A) + P(B)}
+ \end{equation}
+ 
+ We can use Bayes Theorem to expand $P(A|C)$ and $P(B|C)$. 
+ 
+ \begin{equation}
+     = \frac{(\frac{P(C|A)P(A)}{P(C)}+\frac{P(C|B)P(B)}{P(C)})P(C)}{P(A) + P(B)} = \frac{P(C|A)P(A)+P(C|B)P(B)}{P(A) + P(B)}
+ \end{equation}
+ 
+ We are given $P(A) = 2P(B)$.
+ 
+ \begin{equation}
+     = \frac{2P(C|A)P(B)+P(C|B)P(B)}{3P(B)} = \frac{2P(C|A)+P(C|B)}{3}
+ \end{equation}
+ 
+ Finally, we can substitute $P(C|A) = \frac{2}{7}$ and $P(C|B) = \frac{4}{7}$.
+ 
+ \begin{equation}
+     = \frac{2*\frac{2}{7}+\frac{4}{7}}{3} = \frac{8}{21}
+ \end{equation}
+ 
+ Final answer: $\frac{8}{21}$\newline
+ 
+ \end{document}
+
